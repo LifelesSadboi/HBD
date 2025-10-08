@@ -1,277 +1,200 @@
-@import url('https://fonts.googleapis.com/css2?family=Dangrek&display=swap'); /**Dangrek*/
-@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap'); /**Courgette */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&family=Courgette&display=swap');
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-.x1 {
-    left: 5%;
-    -webkit-transform: scale(0.9);
-    -moz-transform: scale(0.9);
-    transform: scale(0.9);
-    opacity: 0.6;
-    -webkit-animation: moveclouds 15s linear infinite, sideWays 4s ease-in-out infinite alternate;
-    -moz-animation: moveclouds 15s linear infinite, sideWays 4s ease-in-out infinite alternate;
+body {
+  background-color: #CDE8E5;
+  overflow: hidden;
+  user-select: none;
 }
-.x2 {
-    left: 25%;
-    -webkit-transform: scale(0.6);
-    -moz-transform: scale(0.6);
-    transform: scale(0.6);
-    opacity: 0.9;
-    -webkit-animation: moveclouds 25s linear infinite, sideWays 5s ease-in-out infinite alternate;
-    -moz-animation: moveclouds 25s linear infinite, sideWays 5s ease-in-out infinite alternate;
+
+.wrapper {
+  height: 100vh;
+  text-align: center;
+  position: relative;
 }
-.x3 {
-    left: 55%;
-    -webkit-transform: scale(0.8);
-    -moz-transform: scale(0.8);
-    transform: scale(0.8);
-    opacity: 0.8;
-    -webkit-animation: moveclouds 20s linear infinite, sideWays 4s ease-in-out infinite alternate;
-    -moz-animation: moveclouds 20s linear infinite, sideWays 4s ease-in-out infinite alternate;
+
+.button, .text, .circ, small {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-.x4 {
-    left: 72%;
-    -webkit-transform: scale(0.75);
-    -moz-transform: scale(0.75);
-    transform: scale(0.75);
-    opacity: 0.9;
-    -webkit-animation: moveclouds 18s linear infinite, sideWays 2s ease-in-out infinite alternate;
-    -moz-animation: moveclouds 18s linear infinite, sideWays 0zs ease-in-out infinite alternate;
+
+.button {
+  background-color: #7AB2B2;
+  border-radius: 12px;
+  width: 200px;
+  height: 100px;
+  padding: 22px;
+  transition: 1200ms ease-out;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
 }
-.x5 {
-    left: 88%;
-    -webkit-transform: scale(0.8);
-    -moz-transform: scale(0.8);
-    transform: scale(0.8);
-    opacity: 0.3;
-    -webkit-animation: moveclouds 7s linear infinite, sideWays 1s ease-in-out infinite alternate;
-    -moz-animation: moveclouds 7s linear infinite, sideWays 1s ease-in-out infinite alternate;
+
+.circ {
+  width: 0;
+  height: 0;
+  border-radius: 1000px;
+  background-color: #BFD8D2;
+  transition: 1200ms;
 }
-.x6 {
-    left: 33%;
-    opacity: 1;
-    -webkit-animation: moveclouds 2s linear infinite, swayWays 1s ease-in-out infinite alternate;
-    animation: moveclouds 10s linear infinite, swayWays 9s ease-in-out infinite alternate;
+
+.inc {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
 }
-@-webkit-keyframes moveclouds {
-    0% {
-        top: 500px;
-    }
-    100% {
-        top: -500px;
-    }
+
+#bg2 { background-color: #E3F2F1; }
+#bg3 { background-color: #A9C9C9; }
+#bg4 { background-color: #CDE8E5; }
+
+.text {
+  font-family: 'Quicksand', sans-serif;
+  color: #2F3E46;
+  font-size: 24px;
+  transition: 1200ms;
 }
-@keyframes moveclouds {
-    0% {
-        top: 500px;
-    }
-    100% {
-        top: -500px;
-    }
+
+.hide {
+  font-size: 0;
+  opacity: 0;
 }
-@-webkit-keyframes sideWays {
-    0% {
-        margin-left: 0px;
-    }
-    100% {
-        margin-left: 50px;
-    }
+
+small {
+  display: block;
+  font-family: 'Courgette', cursive;
+  font-size: 12px;
+  color: #4C5B61;
+  animation: blink 1.2s linear infinite;
+  margin-top: 64px;
 }
-@keyframes sideWays {
-    0% {
-        margin-left: 0px;
-    }
-    100% {
-        margin-left: 50px;
-    }
+
+@keyframes blink {
+  0% { opacity: 0; }
+  50% { opacity: 0.6; }
+  100% { opacity: 1; }
 }
-@-keyframes swayWays {
-    0% {
-        transform: rotate(12deg);
-        left: -0.3%;
-    }
-    33% {
-        transform: rotate(-2deg);
-        left: 0.7%;
-    }
-    100% {
-        transform: rotate(0deg);
-        left: -12%;
-    }
-}
-/* //  HEART CODE */
-.altheart {
-    background: url(http://static.indigoimages.ca/2016/shop/113439_img25_twotoneheart.png) no-repeat center;
-    width: 24px;
-    height: 21px;
-    position: relative;
-    display: block;
-}
+
+/* HEARTS */
 .heart {
-    position: relative;
+  position: relative;
+  width: 36px;
+  height: 30px;
 }
+
 .heart:before,
 .heart:after {
-    position: absolute;
-    content: "";
-    left: 18px;
-    top: 0;
-    width: 18px;
-    height: 30px;
-    background: #20148c;
-    -moz-border-radius: 20px 50% 0 0;
-    border-radius: 30px 30px 0 0;
-    -webkit-transform: rotate(-45deg);
-    -ms-transform: rotate(-45deg);
-    transform: rotate(-45deg);
-    -webkit-transform-origin: 0 100%;
-    -ms-transform-origin: 0 100%;
-    transform-origin: 0 100%;
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 30px;
+  background: #FF6F91;
+  border-radius: 30px 30px 0 0;
 }
+
+.heart:before {
+  left: 18px;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+}
+
 .heart:after {
-    left: 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-    -webkit-transform-origin: 100% 100%;
-    -ms-transform-origin: 100% 100%;
-    transform-origin: 100% 100%;
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
 }
-body {
-    margin: 0;
-  }
-  
-  #balloon-container {
-    height: 100vh;
-    padding: 1em;
-    box-sizing: border-box;
-    display: flex;
-    flex-wrap: wrap;
-    overflow: hidden;
-  }
-  
-  .balloon {
-    height: 125px;
-    width: 105px;
-    border-radius: 75% 75% 70% 70%;
-    position: relative;
-  }
-  
-  .balloon:before {
-    content: "";
-    height: 75px;
-    width: 1px;
-    padding: 1px;
-    background-color: #FDFD96;
-    display: block;
-    position: absolute;
-    top: 125px;
-    left: 0;
-    right: 0;
-    margin: auto;
-  }
-  
-  .balloon:after {
-      content: "▲";
-      text-align: center;
-      display: block;
-      position: absolute;
-      color: inherit;
-      top: 120px;
-      left: 0;
-      right: 0;
-      margin: auto;
-  }
-  
-  @keyframes float {
-    from {transform: translateY(100vh);
-    opacity: 1;}
-    to {transform: translateY(-300vh);
-    opacity: 0;}
-  }
-    *{
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-    .wrapper{
-        height: 100vh;
-        background-color: rgb(186, 53, 213);
-        text-align: center;
-        margin: 0 auto;
-        overflow: hidden;
-        user-select: none;
-    }
-    .button,.text,.circ,small{
-        position: absolute;
-        top:50%;
-        left:50%;
-        transform: translate(-50%,-50%);
-    }
-    .button{
-        background-color:#cbb2ff;
-        position: absolute;
-        top:50%;
-        left:50%;
-        transform: translate(-50%,-50%);
-        padding: 22px;
-        transition: 1200ms ease-out;
-        width: 200px;
-        height: 100px;
-        border-radius: 12px;
-    }
-    .circ{
-        width: 0px;
-        height: 0px;
-        border-radius: 1000px;
-        background-color: aqua;
-        transition: 1200ms;
-    }
-    .inc{
-        width: 100%;
-        height: 100%;
-        border-radius: 0;
-    }
-    #bg1 {
-        background-color: #ff009e;
-    }
-    #bg2{
-        background-color: 	#ff819f;
-    }
-    #bg3{
-        background-color: #fea0ff;
-    }
-    #bg4{
-        background-color: #ffb2d7;
-    }
-    .hide{
-        font-size: 0px;
-        opacity: 0%;
-    }
-    .text{
-        width: 500px;
-        transition: 1200ms;
-        font-size: 24px;
-        font-family: 'Dangrek';
-        color:rgb(42, 42, 42);
-    }
-    .nocolor{
-        background-color: #4a347800;
-    }
-    .container{
-        z-index: 100;
-    }
-	small{
-		font-size: 12px;
-		font-family: cursive;
-		color: rgb(255, 255, 255);
-		animation: blink 1s linear infinite;
-        margin-top: 64px;
-        text-shadow: 0px 0px 3px black;
-        font-family: 'Courgette';
-	}
-@keyframes blink{
-0%{opacity: 0;}
-50%{opacity: .5;}
-100%{opacity: 1;}
+
+.x1 { left: 5%; animation: moveclouds 18s linear infinite, sideWays 4s ease-in-out infinite alternate; opacity: 0.8; }
+.x2 { left: 25%; animation: moveclouds 25s linear infinite, sideWays 6s ease-in-out infinite alternate; opacity: 0.6; }
+.x3 { left: 55%; animation: moveclouds 20s linear infinite, sideWays 5s ease-in-out infinite alternate; opacity: 0.7; }
+.x4 { left: 72%; animation: moveclouds 22s linear infinite, sideWays 3s ease-in-out infinite alternate; opacity: 0.8; }
+.x5 { left: 88%; animation: moveclouds 26s linear infinite, sideWays 5s ease-in-out infinite alternate; opacity: 0.5; }
+.x6 { left: 40%; animation: moveclouds 18s linear infinite, swayWays 8s ease-in-out infinite alternate; opacity: 0.9; }
+
+@keyframes moveclouds {
+  0% { top: 500px; }
+  100% { top: -500px; }
+}
+
+@keyframes sideWays {
+  0% { margin-left: 0px; }
+  100% { margin-left: 50px; }
+}
+
+@keyframes swayWays {
+  0% { transform: rotate(12deg); left: -0.3%; }
+  33% { transform: rotate(-2deg); left: 0.7%; }
+  100% { transform: rotate(0deg); left: -12%; }
+}
+
+/* BALLOONS */
+#balloon-container {
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+.balloon {
+  height: 120px;
+  width: 100px;
+  border-radius: 75% 75% 70% 70%;
+  position: relative;
+}
+
+.balloon:before {
+  content: "";
+  height: 75px;
+  width: 1px;
+  background-color: #BFC0C0;
+  display: block;
+  position: absolute;
+  top: 120px;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.balloon:after {
+  content: "▲";
+  color: inherit;
+  display: block;
+  position: absolute;
+  top: 115px;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+@keyframes float {
+  from { transform: translateY(100vh); opacity: 1; }
+  to { transform: translateY(-300vh); opacity: 0; }
+}
+
+/* 🎵 Music Toggle Button */
+#music-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #7AB2B2;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 22px;
+  cursor: pointer;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+#music-toggle:hover {
+  transform: scale(1.1);
+  background-color: #5D8A8A;
 }
