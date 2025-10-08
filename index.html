@@ -1,95 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Bday &lt;3</title>
-    <link href="hbdchey.css"rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday 🎉</title>
+  <link rel="stylesheet" href="softbday.css">
 </head>
 <body>
-    <div class="wrapper">
-        <div class="btn button">
-            <div class="bg btn circ"></div>
-            <div class="bg circ" id="bg2"></div>
-            <div class="bg circ" id="bg3"></div>
-            <div class="bg circ" id="bg4"></div>
-            <p class="text">Tap me</p>
-            <p class="text hide">Yow Ate Chae<small>Tap anywhere</small></p>
-            <p class="text hide">Happy Birthday!<small>Tap anywhere</small></p>
-            <p class="text hide">makikawn ako hehe:><small>Tap again to refresh</small></p>
+  <div class="wrapper">
+    <!-- Music Toggle Button -->
+    <button id="music-toggle" title="Toggle Music">🔇</button>
 
-        </div>
-        <div class="container">
-            <div class="hearty heart x1"></div>
-            <div class="hearty heart x2"></div>
-            <div class="hearty heart x3"></div>
-            <div class="hearty heart x4"></div>
-            <div class="hearty heart x5"></div>
-            <div class="hearty altheart x6"></div>
-        </div>
-        <div id="balloon-container">
-        </div>
+    <div class="btn button">
+      <div class="bg btn circ"></div>
+      <div class="bg circ" id="bg2"></div>
+      <div class="bg circ" id="bg3"></div>
+      <div class="bg circ" id="bg4"></div>
+
+      <p class="text">Tap me 💫</p>
+      <p class="text hide">Hey there!<small>Tap again</small></p>
+      <p class="text hide">Happy Birthday 💖<small>Tap again</small></p>
+      <p class="text hide">Wishing you love and joy 🎂<small>Tap to restart</small></p>
     </div>
-</body>
-</html>
-<script>
+
+    <div class="container">
+      <div class="hearty heart x1"></div>
+      <div class="hearty heart x2"></div>
+      <div class="hearty heart x3"></div>
+      <div class="hearty heart x4"></div>
+      <div class="hearty heart x5"></div>
+      <div class="hearty heart x6"></div>
+    </div>
+
+    <div id="balloon-container"></div>
+  </div>
+
+  <!-- 🎵 Background Music -->
+  <audio id="bg-music" loop preload="auto" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_1b7460a119.mp3?filename=soft-piano-ambient-110100.mp3"></audio>
+
+  <script>
+    // Button text transition
     const circ = document.querySelectorAll('.btn');
     const txt = document.querySelectorAll('.text');
     const bg = document.querySelectorAll('.bg');
     let i = 0;
-    circ[0].addEventListener('click',()=>{
-        circ[1].classList.toggle("inc");
-        circ[0].classList.add("inc");
-        bg[i].classList.add('inc');
-        i++;
-        if(i=>1){
-            txt[i-1].classList.add('hide');
-            txt[i].classList.remove('hide');
-            if(i==3){
-                circ[0].addEventListener('click',()=>{
-                    txt[0].classList.remove('hide');
-                    setTimeout(function(){
-                        window.location.reload();
-                    },1000);
-                })
-            }
+
+    circ[0].addEventListener('click', () => {
+      circ[0].classList.add("inc");
+      bg[i].classList.add('inc');
+      i++;
+      if (i >= 1) {
+        txt[i - 1].classList.add('hide');
+        txt[i].classList.remove('hide');
+        if (i === 3) {
+          circ[0].addEventListener('click', () => {
+            txt[0].classList.remove('hide');
+            setTimeout(() => {
+              window.location.reload();
+            }, 1000);
+          });
         }
-        else{
-            txt[0].classList.add('hide');
-            txt[i].classList.remove('hide');
-        }
-    })
-    function random(num) {
-  return Math.floor(Math.random()*num)
-}
+      }
+    });
 
-function getRandomStyles() {
-  var r = random(255);
-  var g = random(255);
-  var b = random(255);
-  var mt = random(200);
-  var ml = random(50);
-  var dur = random(5)+5;
-  return `
-  background-color: rgba(${r},${g},${b},0.7);
-  color: rgba(${r},${g},${b},0.7); 
-  box-shadow: inset -7px -3px 10px rgba(${r-10},${g-10},${b-10},0.7);
-  margin: ${mt}px 0 0 ${ml}px;
-  animation: float ${dur}s ease-in infinite
-  `
-}
+    // 🎈 Balloon Animation
+    function random(num) { return Math.floor(Math.random() * num); }
 
-function createBalloons(num) {
-  var balloonContainer = document.getElementById("balloon-container")
-  for (var i = num; i > 0; i--) {
-  var balloon = document.createElement("div");
-  balloon.className = "balloon";
-  balloon.style.cssText = getRandomStyles();           balloonContainer.append(balloon);
-  }
-}
+    function getRandomStyles() {
+      const colors = ['#FFC6C6', '#B9E0FF', '#C4FCEF', '#FFF5C3', '#D1E8E2'];
+      const color = colors[random(colors.length)];
+      const mt = random(200);
+      const ml = random(50);
+      const dur = random(5) + 5;
+      return `
+        background-color: ${color};
+        box-shadow: inset -7px -3px 10px rgba(0,0,0,0.05);
+        margin: ${mt}px 0 0 ${ml}px;
+        animation: float ${dur}s ease-in infinite;
+      `;
+    }
 
-window.onload = function() {
-  createBalloons(100);
-}
-</script>
+    function createBalloons(num) {
+      const balloonContainer = document.getElementById("balloon-container");
+      for (let i = num; i > 0; i--) {
+        const balloon = document.createElement("div");
+        balloon.className = "balloon";
+        balloon.style.cssText = getRandomStyles();
+        balloonContainer.append(balloon);
+      }
+    }
+    window.onload = () => createBalloons(60);
+
+    // 🎵 Music Controls
+    const music = document.getElementById('bg-music');
+    const musicBtn = document.getElementById('music-toggle');
+    let isPlaying = false;
+
+    music.volume = 0.3; // soft volume
+    music.muted = true; // starts muted to comply with browser autoplay policy
+
+    function toggleMusic() {
+      if (!isPlaying) {
+        music.muted = false;
+        music.play();
+        musicBtn.textContent = '🔊';
+        isPlaying = true;
+      } else {
+        music.pause();
+        musicBtn.textContent = '🔇';
+        isPlaying = false;
+      }
+    }
+
+    musicBtn.addEventListener('click', toggleMusic);
+  </script>
+</body>
+</html>
